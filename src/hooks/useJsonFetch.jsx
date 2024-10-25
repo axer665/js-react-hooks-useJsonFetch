@@ -5,8 +5,6 @@ export default function useJsonFetch(url, opts) {
   const [error, setError] = useState({icon:'😬'});
   const [loading, setLoading] = useState(false);
 
-
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,6 +24,7 @@ export default function useJsonFetch(url, opts) {
 
     fetchData(url, opts);
     return () => setData(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url, opts]);
 
   return { data, error, loading };
